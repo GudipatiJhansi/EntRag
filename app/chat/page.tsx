@@ -8,6 +8,7 @@ type Hit = {
   score: number;
   excerpt: string;
   document: {
+    id: string;
     title: string;
     source: string;
     sensitivity: string;
@@ -117,7 +118,7 @@ export default function ChatPage() {
             <div className="source-list">
               {hits.length === 0 ? <p className="muted">Sources will appear after a query.</p> : null}
               {hits.map((hit) => (
-                <div className="source-item" key={hit.document.source}>
+                <div className="source-item" key={hit.document.id}>
                   <strong>{hit.document.title}</strong>
                   <p className="muted">{hit.excerpt}</p>
                   <span className="pill">score {hit.score}</span>
